@@ -1,0 +1,43 @@
+Card Format (A4,5X,I2,F21.6,46G21.14)
+Use with OBSINPUT type 35
+Detailed Format:
+
+Columns	Format		Description
+1-4		A4		Station Name
+Station name is 4 characters ending in ‘Q’ or ‘C’
+				‘Q’ – radar
+				‘C’ – optical 
+5-8		n/a		blank
+9-11		I3		Satellite-Based Observation types
+				96 – Right Ascension in radians (J2000 frame) 
+				97 – Declination in radians (J2000 frame) 
+				98 – Right Ascension in radians (TEME of Date frame) 
+				99 – Declination in radians (TEME of Date frame)
+				69 – Azimuth in radians (TOD, topocentric frame)
+				70 – Elevation in radians (TOD, topocentric frame)
+				71 – Range in km (TOD, topocentric frame)
+12-14		I3		Reference frame for sensor pos/vel in columns 123-248
+				0 - ECEF sensor position (blank also indicates this)
+				1 - MEME J2000 sensor position
+18-38		F21.6		Observation time (UTC) (YYYMMDDHHMISS.ssss)
+				YYY – years from 1900
+				MM – month
+				DD – day of month
+				HH – hour
+				MI – minute
+				SS – second (integer part)
+				.ssss – seconds (fractional part)
+39-59		G21.14		Satellite-based observation of type referenced in cols. 9-11
+				(uncorrected)
+60-80		G21.14		Satellite-based observation of type referenced in cols. 9-11
+				(corrected), corrected and uncorrected can be identical
+81-101		G21.14		0 (unused)
+102-122	G21.14		0 (unused)
+123-143	G21.14		ECEF or J2000 x position (km) with time in cols 18-38
+144-164	G21.14		ECEF or J2000 y position (km) with time in cols 18-38
+165-185	G21.14		ECEF or J2000 z position (km) with time in cols 18-38
+186-206	G21.14		ECEF or J2000 x velocity (km/s) with time in cols 18-38
+207-227	G21.14		ECEF or J2000 y velocity (km/s) with time in cols 18-38
+228-248	G21.14		ECEF or J2000 z velocity (km/s) with time in cols 18-38
+249-269	G21.14		Observation standard deviation (observation units)
+270-290	G21.14		Satellite RSO number
